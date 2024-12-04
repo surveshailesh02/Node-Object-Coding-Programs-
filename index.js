@@ -124,3 +124,82 @@ var newFruit = {
 };
 fruits.push(newFruit);
 console.log(fruits);
+
+console.log("========= Q.9 WAP To Remove Duplicate Array Of Object ======");
+
+var students = [
+    { id: 1, name: 'John Doe'},
+    { id: 2, name: 'Jane Smith'},
+    { id: 3, name: 'John Doe'},
+    { id: 4, name: 'Samule Green'},
+    { id: 5, name: 'Jane Smith'}
+];
+function removeDuplicates(arr) {
+    return arr.filter((student,index,self)=>
+          index == self.findIndex((t)=>(
+             t.id == student.id && t.name == student.name
+          ))
+    );
+}
+var uniqueStudents = removeDuplicates(students);
+console.log(uniqueStudents);
+
+console.log("========= Q.10 WAP To get Subset of JavaScript Properties ======");
+
+var person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    city: 'New York',
+    country: 'USA'
+};
+
+var { firstName, lastName, age, city, country} = person;
+
+console.log(firstName,lastName,age,city,country);
+
+console.log("========= Q.11 WAP To Convert Object to Array key-value pairs JavaScript Properties ======");
+
+console.log("=================== [1] Using Object.entries() ===========");
+
+const obj ={
+    key1 : 'value1',
+    key2 : 'value2',
+    key3 : 'value3'
+};
+
+const entry = Object.entries(obj);
+console.log(entry);
+
+console.log("=================== [2] Using Object.keys() ===========");
+
+const obj1 ={
+    key1 : 'value1',
+    key2 : 'value2',
+    key3 : 'value3'
+};
+
+const entry1 = Object.keys(obj1).map(keys=>[keys, obj1[keys]]);
+console.log(entry1);
+
+console.log("========= Q.12 How To Check if value is Object-like in javaScript ======");
+
+function isObjectLike(value) {
+    return typeof value == 'object' && value !== null;
+}
+console.log(isObjectLike({}));
+console.log(isObjectLike([]));
+console.log(isObjectLike(null));
+console.log(isObjectLike(42));
+console.log(isObjectLike('string'));
+
+console.log("========= Q.13 How To use variable for key in a  javaScript Object Literal ======");
+
+let key = 'name';
+let value = 'John Doe';
+
+let obj2 ={
+    [key] : value
+};
+
+console.log(obj2);
